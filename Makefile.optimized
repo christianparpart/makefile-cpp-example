@@ -1,0 +1,15 @@
+CXX = g++
+LD = g++
+
+all: program
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $^
+
+program: main.o functions.o
+	$(LD) $(LDFLAGS) $^
+
+clean:
+	rm -f *.o program
+
+.PHONY: all clean
